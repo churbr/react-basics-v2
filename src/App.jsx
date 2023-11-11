@@ -2,10 +2,14 @@ import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept.jsx";
 import { CORE_CONCEPTS } from "./data";
 import TabButton from "./components/TabButton";
+import { useState } from "react";
 
 function App() {
+  const [selected, setSelected] = useState('Please select a button.');
+
   const handleSelect = (button) => {
-    console.log(button);
+    setSelected(button);
+    console.log(selected); // Will update the previous value because react schedules the state update
   }
 
   return (
@@ -34,6 +38,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
         </section>
+        {selected}
       </main>
     </div>
   );
