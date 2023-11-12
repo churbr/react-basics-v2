@@ -12,6 +12,19 @@ function App() {
     console.log(selected); // Will update the previous value because react schedules the state update
   }
 
+  let tabContent = <p>Please select a content.</p>;
+
+  if(selected) {
+    tabContent =
+    <div id="tab-content">
+      <h3>{EXAMPLES[selected].title}</h3>
+      <p>{EXAMPLES[selected].description}</p>
+      <pre>
+        <code>{EXAMPLES[selected].code}</code>
+      </pre>
+    </div>
+  }
+
   return (
     <div>
       <Header />
@@ -38,16 +51,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
         </section>
-        { !selected && <p>Please select a content.</p>}
-        { selected && (
-            <div id="tab-content">
-            <h3>{EXAMPLES[selected].title}</h3>
-            <p>{EXAMPLES[selected].description}</p>
-            <pre>
-              <code>{EXAMPLES[selected].code}</code>
-            </pre>
-          </div>
-        )}
+        {tabContent}
       </main>
     </div>
   );
