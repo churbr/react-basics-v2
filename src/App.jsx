@@ -1,11 +1,11 @@
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept.jsx";
-import { CORE_CONCEPTS } from "./data";
+import { CORE_CONCEPTS, EXAMPLES } from "./data";
 import TabButton from "./components/TabButton";
 import { useState } from "react";
 
 function App() {
-  const [selected, setSelected] = useState('Please select a button.');
+  const [selected, setSelected] = useState('components');
 
   const handleSelect = (button) => {
     setSelected(button);
@@ -38,7 +38,13 @@ function App() {
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
         </section>
-        {selected}
+        <div id="tab-content">
+          <h3>{EXAMPLES[selected].title}</h3>
+          <p>{EXAMPLES[selected].description}</p>
+          <pre>
+            <code>{EXAMPLES[selected].code}</code>
+          </pre>
+        </div>
       </main>
     </div>
   );
