@@ -43,9 +43,9 @@ function App() {
               <CoreConcept {...CORE_CONCEPTS[2]} />
               <CoreConcept {...CORE_CONCEPTS[3]} />
             */}
-            
+
             {CORE_CONCEPTS.map((conceptItem) => {
-              return  <CoreConcept {...conceptItem} />
+              return  <CoreConcept key={conceptItem.title} {...conceptItem} />
             })}
           </ul>
         </section>
