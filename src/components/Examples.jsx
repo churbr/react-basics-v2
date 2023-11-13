@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Tabs from "./Tabs";
 import TabButton from "./TabButton";
 import Section from "./Section";
 import { EXAMPLES } from "../data";
@@ -27,33 +28,38 @@ function Examples() {
 
   return (
     <Section id="examples" title="Examples">
-      <menu>
-        <TabButton
-          isSelected={selected === "components"}
-          onSelect={() => handleSelect("components")}
-        >
-          Components
-        </TabButton>
-        <TabButton
-          isSelected={selected === "jsx"}
-          onSelect={() => handleSelect("jsx")}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          isSelected={selected === "props"}
-          onSelect={() => handleSelect("props")}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          isSelected={selected === "state"}
-          onSelect={() => handleSelect("state")}
-        >
-          State
-        </TabButton>
-      </menu>
-      {tabContent}
+      <Tabs
+        buttons={
+          <>
+            <TabButton
+              isSelected={selected === "components"}
+              onSelect={() => handleSelect("components")}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              isSelected={selected === "jsx"}
+              onSelect={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selected === "props"}
+              onSelect={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selected === "state"}
+              onSelect={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
     </Section>
   );
 }
