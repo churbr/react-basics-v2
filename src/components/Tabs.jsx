@@ -1,7 +1,7 @@
-function Tabs({children, buttons}) {
+function Tabs({children, buttons, ButtonContainer}) {
     return (
         <>
-            <menu>{buttons}</menu>
+            <ButtonContainer>{buttons}</ButtonContainer>
             {children}
         </>
     );    

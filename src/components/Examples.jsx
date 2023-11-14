@@ -29,6 +29,11 @@ function Examples() {
   return (
     <Section id="examples" title="Examples">
       <Tabs
+        /**
+         * If you want to use custom component as container, put the function name (i.e: ButtonContainer={Section})
+         * And if you want to use the built-in html element, just put the name (i.e: "div"; "p", "ul", "li", "menu", etc.)
+        **/
+        ButtonContainer="menu"
         buttons={
           <>
             <TabButton
